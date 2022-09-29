@@ -1,7 +1,6 @@
 import React from "react";
 import { IoMdAddCircle } from "react-icons/io";
-import InventoryTable from "../tables/inventory";
-
+import InventoryComponent from "./inventorycomponent";
 const InventoryMain = () => {
   return (
     <div className="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-52">
@@ -11,21 +10,7 @@ const InventoryMain = () => {
           New <IoMdAddCircle />{" "}
         </button>
       </div>
-      <section>
-        <div className="mx-2 my-6 p-2 bg-slate-50">
-          <div className="grid grid-cols-1 gap-2 md:grid-cols-4">
-            <div className="p-2 m-2 shadow-md border-r-2 overflow-y-auto flex-col">
-              <div>All</div>
-              <div>All</div>
-              <div>All</div>
-              <div>All</div>
-            </div>
-            <div className="col-span-3 shadow-lg p-2">
-              <InventoryTable />
-            </div>
-          </div>
-        </div>
-      </section>
+      <InventoryComponent />
     </div>
   );
 };
