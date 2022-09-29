@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import Dashboard from "./dashboard/dashboard";
+import Layout from "./Layout";
 
 function App() {
   return (
     <>
       <div className=" bg-slate-400 ">
         <BrowserRouter>
-          <Dashboard />
+          <Layout />
         </BrowserRouter>
       </div>
     </>
