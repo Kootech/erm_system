@@ -1,12 +1,21 @@
 import InventoryTable from "../tables/inventory";
 import React, { useEffect, useState } from "react";
 
+import { useSelector, useDispatch } from "react-redux";
+
+import { RootState } from "../store";
+import { fetchProducts } from "../features/products/productSlice";
+
 const InventoryComponent: React.FC = () => {
   const [all, setAll] = useState(true);
   const [detail, setDetail] = useState(false);
   const [profit, setProfit] = useState(false);
   const [loss, setLoss] = useState(false);
 
+  const dispatch = useDispatch();
+  const products = useSelector((state: RootState) => state.products);
+
+  useEffect(() => {});
   // function to toggle tabs
   const setTab = (e: React.SyntheticEvent) => {
     console.log(e.currentTarget.id);

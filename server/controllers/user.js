@@ -26,11 +26,30 @@ const registerUser = expressAsync(async (req, res) => {
     roles,
   });
 
-  res.status(201).json(user);
+  res.status(201).json({
+    _id: user._id,
+    username,
+    email,
+    roles,
+    token: generateToken(user._id),
+  });
 });
 
 const loginUser = expressAsync(async (req, res) => {
-  res.send(`get user working`);
+  const { email, password } = req.body;
+
+  const user = await User.findOne({ email });
+
+  if (user && (await bcrypt.compare(password, user.password))) {
+    res.status(200).json({
+      _id: user.id,
+      username: user.username,
+      email: user.email,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(400);
+  }
 });
 
 const updateUser = expressAsync(async (req, res) => {
@@ -45,7 +64,7 @@ const getUsers = expressAsync(async (req, res) => {
   res.send(`get users working`);
 });
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+  return jwt.sign({ id }, process.env.JWT, {
     expiresIn: "30d",
   });
 };

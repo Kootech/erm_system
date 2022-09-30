@@ -7,6 +7,8 @@ const {
   deleteProduct,
 } = require("../controllers/product");
 
+const validate = require("../middleware/authMiddleware");
+
 const router = express.Router();
 
 router.get("/", getProducts);
