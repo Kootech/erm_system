@@ -18,12 +18,12 @@ const productSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
-    quantity: [
+    categories: [
       {
         type: String,
       },
     ],
-    quantity: {
+    image: {
       type: String,
     },
     user: {
