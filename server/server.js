@@ -6,6 +6,7 @@ const _ = require("dotenv").config();
 const connectDB = require("./models/configDB");
 const productRouter = require("./routers/product");
 const userRouter = require("./routers/user");
+const soldRouter = require("./routers/sold");
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -20,5 +21,6 @@ app.get("/", (req, res) => {
 
 app.use("/products", productRouter);
 app.use("/user", userRouter);
+app.use("/sold", soldRouter);
 
 app.listen(PORT, () => console.log(`server listening on port: ${PORT}`));

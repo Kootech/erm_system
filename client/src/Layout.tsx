@@ -7,14 +7,23 @@ import Inventory from "./dashboard/inventory";
 import EditProduct from "./dashboard/editProduct";
 import Login from "./pages/login";
 import Register from "./pages/register";
+
 import Dash from "./Dash";
+import User from "./User";
+
+import Index from "./user";
+import Cart from "./user/cart";
 
 const Layout = () => {
   return (
     <div>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/user" element={<User />}>
+          <Route index element={<Index />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
       </Routes>
 
       <Routes>
