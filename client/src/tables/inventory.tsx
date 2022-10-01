@@ -1,4 +1,6 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
+
 import {
   createColumnHelper,
   flexRender,
@@ -38,7 +40,14 @@ const columnHelper = createColumnHelper<Product>();
 
 const columns = [
   columnHelper.accessor("productName", {
-    cell: (info) => info.getValue(),
+    cell: (info) => (
+      <Link
+        to={`/dashboard/inventory/products/edit/${info.getValue()}`}
+        className={`text-blue-600`}
+      >
+        {info.getValue()}
+      </Link>
+    ),
     footer: (info) => info.column.id,
   }),
   columnHelper.accessor((row) => row.category, {

@@ -6,10 +6,18 @@ const MainContent = () => {
   return (
     <>
       <div className="m-4 p-2 border-gray-400 bg-white grid grid-cols-2 gap-2 md:grid-cols-4 justify-between">
-        <div>todays sales</div>
-        <div>Inventory</div>
-        <div>products sold</div>
-        <div>weekly sales</div>
+        <div className=" h-32 shrink-1 bg-orange-200 rounded-sm shadow-md hover:cursor-pointer hover:text-xl transition-all">
+          todays sales
+        </div>
+        <div className=" h-32 shrink-1 bg-blue-200 rounded-sm shadow-md hover:cursor-pointer hover:text-xl transition-all">
+          Inventory
+        </div>
+        <div className=" h-32 shrink-1 bg-green-200 rounded-sm shadow-md hover:cursor-pointer hover:text-xl transition-all">
+          products sold
+        </div>
+        <div className=" h-32 shrink-1 bg-red-200 rounded-sm shadow-md hover:cursor-pointer hover:text-xl transition-all">
+          weekly sales
+        </div>
       </div>
       <div className="m-4 p-2 bg-slate-200  grid grid-cols-1 gap-2 md:grid-cols-3">
         <div className="border-gray-400 shadow-sm bg-white p-4">
