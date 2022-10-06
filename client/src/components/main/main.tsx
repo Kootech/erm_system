@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "./nav";
+import Nav from "../nav";
 import MainContent from "./main-content";
 
 const Main = () => {

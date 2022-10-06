@@ -5,6 +5,8 @@ import Financial from "./dashboard/financial";
 import Dashboard from "./dashboard/dashboard";
 import Inventory from "./dashboard/inventory";
 import EditProduct from "./dashboard/editProduct";
+import LowInventory from "./dashboard/lowInventory";
+
 import Login from "./pages/login";
 import Register from "./pages/register";
 
@@ -33,6 +35,7 @@ const Layout = () => {
           <Route path="inventory/products/edit/:id" element={<EditProduct />} />
           <Route path="financial" element={<Financial />} />
           <Route path="employees" element={<Employees />} />
+          <Route path="lowInventory" element={<LowInventory />} />
         </Route>
       </Routes>
     </div>

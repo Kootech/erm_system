@@ -1,7 +1,7 @@
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
 
-import Main from "../components/main";
+import Main from "../components/main/main";
 
 const Dashboard = () => {
   return (

@@ -5,7 +5,9 @@ import ProductCard from "../userComponents/productCard";
 const Index = () => {
   return (
     <div>
-      <div></div>
+      <div className="fixed top-20 right-10 rounded-full bg-blue-900 text-red m-1 p-4 font-bold hover:cursor-pointer">
+        0
+      </div>
       <div className=" bg-white flex justify-center ">
         <form>
           <input
@@ -15,7 +17,7 @@ const Index = () => {
           />
         </form>
       </div>
-      <div className="mt-4 p-2 grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4">
+      <div className="mt-4 p-2 grid grid-cols-1 gap-2 md:grid-cols-3 xl:grid-cols-4">
         <ProductCard />
         <ProductCard />
         <ProductCard />

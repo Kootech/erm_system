@@ -5,7 +5,11 @@ const ProductCard = () => {
     <div>
       <div className="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
-          <img className="p-8 rounded-t-lg" src="" alt="product image" />
+          <img
+            className="p-8 rounded-t-lg h-68 w-auto"
+            src="../../watch.jpg"
+            alt="product image"
+          />
         </a>
         <div className="px-5 pb-5">
           <a href="#">

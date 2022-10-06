@@ -71,7 +71,7 @@ const Aside = () => {
                     className="text-base text-white font-normal mx-4 my-6 rounded-lg flex items-center p-2 hover:bg-gray-800 group"
                   >
                     <MdOutlineInventory className="text-2xl" />
-                    <span className="ml-3">Inventory</span>
+                    <span className="ml-3">Products</span>
                   </NavLink>
                 </li>
                 <li>

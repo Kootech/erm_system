@@ -1,5 +1,5 @@
 import React from "react";
-import InventoryMain from "../components/inventoryMain";
+import InventoryMain from "../components/inventory/inventoryMain";
 
 const Inventory = () => {
   return (

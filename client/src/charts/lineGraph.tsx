@@ -3,18 +3,20 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
-import { Bar } from "react-chartjs-2";
-// import faker from "faker";
+import { Line } from "react-chartjs-2";
+// import faker from 'faker';
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend
@@ -28,7 +30,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Chart.js Bar Chart",
+      text: "Chart.js Line Chart",
     },
   },
 };
@@ -40,23 +42,15 @@ export const data = {
   datasets: [
     {
       label: "Dataset 1",
-      data: [600, 300, 290, 290, 102, 700, 550],
+      data: [100, 99, 142, 130, 78, 19, 50],
+      borderColor: "rgb(255, 99, 132)",
       backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-    {
-      label: "Dataset 2",
-      data: [500, 250, 390, 277, 400, 100, 188],
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
     },
   ],
 };
 
-const LineGraph = () => {
-  return (
-    <div>
-      <Bar options={options} data={data} />
-    </div>
-  );
-};
+function LineGraph() {
+  return <Line options={options} data={data} />;
+}
 
 export default LineGraph;

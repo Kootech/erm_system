@@ -11,31 +11,27 @@ const getSoldProducts = asyncHandler(async (req, res) => {
 
 // add transcacted items to DB
 const addToSold = asyncHandler(async (req, res) => {
-  const { items, total, user } = req.body;
+  const { items, taxPrice, totalPrice } = req.body;
 
-  if (!items || !total || !user) {
+  console.log(items[0].name);
+  console.log(taxPrice);
+  console.log(totalPrice);
+
+  if (!items || !taxPrice || !totalPrice) {
     return res.status(400).json({ message: "transaction was not completed" });
   }
-  //slice square brackets
-  const arr = items.slice(1, -1).split(",");
-  console.log();
-  console.log(Array.isArray(items.split(",")));
-  console.log(items.split(","));
-  //   console.log(user);
-  console.log(items.slice(1, -1));
 
-  const soldItems = await Sold.create(
-    // { $push: { items: { $each: arr } }, total }
-    {
-      items: arr,
-      total,
-    }
+  const response = await Sold.create({
+    items: items.map((item) => ({
+      name: item.name,
+      qty: item.qty,
+      price: item.price,
+    })),
+    totalPrice,
+    taxPrice,
+  });
 
-    // { total }
-    // { user }
-  );
-
-  res.status(201).json(soldItems);
+  res.status(201).json({ response });
 });
 
 module.exports = { getSoldProducts, addToSold };

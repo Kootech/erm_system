@@ -1,5 +1,5 @@
 import React from "react";
-import FinancialMain from "../components/financialMain";
+import FinancialMain from "../components/financial/financialMain";
 
 const Financial = () => {
   return (
