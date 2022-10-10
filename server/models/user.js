@@ -22,8 +22,12 @@ const userSchema = mongoose.Schema(
     roles: [
       {
         type: String,
+        default: "employee",
       },
     ],
+    refreshToken: {
+      type: String,
+    },
   },
   {
     timestamps: true,

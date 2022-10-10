@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const _ = require("dotenv").config();
 
@@ -9,11 +10,15 @@ const userRouter = require("./routers/user");
 const soldRouter = require("./routers/sold");
 
 const PORT = process.env.PORT || 5000;
+
 const app = express();
+
 connectDB();
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
   res.send(`home route`);

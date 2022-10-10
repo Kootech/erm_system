@@ -11,6 +11,11 @@ const productSchema = mongoose.Schema(
       type: Number,
       required: true,
     },
+    tax: {
+      type: Number,
+      required: true,
+      default: 12,
+    },
     quantity: {
       type: Number,
       default: 0,

@@ -12,3 +12,8 @@ export interface Sold {
   items: string;
   total: number;
 }
+
+export interface UserLogin {
+  email: string;
+  password: string;
+}

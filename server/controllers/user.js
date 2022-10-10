@@ -26,12 +26,28 @@ const registerUser = expressAsync(async (req, res) => {
     roles,
   });
 
+  const refreshToken = generateRefreshToken(user.id);
+  const day = 24 * 60 * 60 * 1000;
+
+  res.cookie("JWT_REFRESH_TOKEN", refreshToken, {
+    httpOnly: true,
+    maxAge: day * 10,
+  });
+
+  const filter = { email: user.email };
+  const token = { refreshToken: refreshToken };
+
+  const change = await User.findOneAndUpdate(filter, token);
+
+  console.log(change.email);
+
   res.status(201).json({
     _id: user._id,
     username,
     email,
     roles,
-    token: generateToken(user._id),
+    accessToken: generateAccessToken(user._id),
+    refreshToken,
   });
 });
 
@@ -45,7 +61,7 @@ const loginUser = expressAsync(async (req, res) => {
       _id: user.id,
       username: user.username,
       email: user.email,
-      token: generateToken(user._id),
+      accessToken: generateAccessToken(user._id),
     });
   } else {
     res.status(400);
@@ -63,9 +79,16 @@ const deleteUser = expressAsync(async (req, res) => {
 const getUsers = expressAsync(async (req, res) => {
   res.send(`get users working`);
 });
-const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT, {
-    expiresIn: "30d",
+
+const generateAccessToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_ACCESS_TOKEN, {
+    expiresIn: 60 * 15,
+  });
+};
+
+const generateRefreshToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_REFRESH_TOKEN, {
+    expiresIn: "10d",
   });
 };
 
